@@ -35,16 +35,12 @@ You can set up a monitoring stack using the provided docker compose file in the 
 
 If you don't want to self host Grafana, you can use Grafana Cloud service (the free tier is enough for this use case).
 
-
 ## Available Metrics
 
 * `monster_kill_duration_seconds`: The time taken to kill a monster (histogram).
 * `damage_per_second`: The damage per second dealt to a monster (histogram).
 * `skilluse_dmg`: The damage dealt to a monster with a skill (histogram).
 * `attack_dmg`: The damage dealt to a monster with a normal attack per hit (histogram).
-
-## Example PromQL Queries
-
 
 ## Example PromQL Queries
 
