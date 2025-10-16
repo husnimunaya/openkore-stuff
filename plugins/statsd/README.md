@@ -62,3 +62,6 @@ sum by (character, monster) (rate(openkore_monster_kill_duration_seconds_sum[5m]
 ```
 sum by (character, monster) (rate(openkore_damage_per_second_sum[5m]) / rate(openkore_damage_per_second_count[5m]))
 ```
+
+# License
+GPL-3.0. See [LICENSE](https://github.com/husnimunaya/openkore-stuff/blob/main/LICENSE)
