@@ -102,7 +102,7 @@ sub onTargetDied {
 				tags => \@tags,
 			);
 
-			message sprintf("[statsd] Monster kill metric sent: %s killed %s in %.2fs\n", $char_name, $monster_name, $duration), "system";
+			message sprintf("[statsd] Monster kill metric sent: %s killed %s in %.2fs\n", $char_name, $monster_name, $duration), "system" if $config{statsd_debug};
 
 			if ($dps > 0) {
 				get_statsd_client()->histogram(
@@ -111,7 +111,7 @@ sub onTargetDied {
 					tags => \@tags,
 				);
 
-				message sprintf("[statsd] DPS metric sent: %s dealt %.2f dmg/s to %s\n", $char_name, $dps, $monster_name), "system";
+				message sprintf("[statsd] DPS metric sent: %s dealt %.2f dmg/s to %s\n", $char_name, $dps, $monster_name), "system" if $config{statsd_debug};
 			}
 		};
 		if ($@) {
@@ -211,7 +211,7 @@ sub onUnload {
 	Plugins::delHooks($hooks);
 	%attack_starts = ();
 	undef $statsd_client;
-	message "[statsd] Plugin unloaded\n", "system";
+	message "[statsd] Plugin unloaded\n", "system" if $config{statsd_debug};
 }
 
 # Metric tag can only contain letters, numbers, underscores, and hyphens

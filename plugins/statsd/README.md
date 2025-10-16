@@ -49,16 +49,16 @@ If you don't want to self host Grafana, you can use Grafana Cloud service (the f
 ## Example PromQL Queries
 
 ### Monster Kill Count
-```promql
+```
 sum by (character, monster) (floor(increase(openkore_monster_kill_duration_seconds_count[5m])))
 ```
 
 ### Average Monster Kill Duration
-```promql
+```
 sum by (character, monster) (rate(openkore_monster_kill_duration_seconds_sum[5m]) / rate(openkore_monster_kill_duration_seconds_count[5m]))
 ```
 
 ### Damage Per Second
-```promql
+```
 sum by (character, monster) (rate(openkore_damage_per_second_sum[5m]) / rate(openkore_damage_per_second_count[5m]))
 ```
