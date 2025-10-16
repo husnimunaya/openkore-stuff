@@ -11,7 +11,7 @@ Add the following settings to your `config.txt`:
 statsd 1
 statsd_host localhost     # your statsd server host
 statsd_port 8125          # your statsd server port
-statsd_prefix openkore    # metric prefix
+statsd_prefix openkore_   # metric prefix
 ```
 
 ## Dependencies
