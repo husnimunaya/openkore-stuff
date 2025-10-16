@@ -1,0 +1,23 @@
+services:
+  statsd-exporter:
+    image: prom/statsd-exporter:latest
+    ports:
+      - "8125:8125/udp"
+      - "9102:9102"
+    command:
+      - '--statsd.listen-udp=:8125'
+      - '--web.listen-address=:9102'
+
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
