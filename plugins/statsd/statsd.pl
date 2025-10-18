@@ -91,7 +91,7 @@ sub onTargetDied {
 		);
 
 		my $dps = 0;
-		if ($total_dmg{$targetID} > 0) {
+		if (exists $total_dmg{$targetID} && $total_dmg{$targetID} > 0) {
 			$dps = $total_dmg{$targetID} / $duration;
 		}
 
@@ -210,6 +210,7 @@ sub onAttackEnd {
 sub onUnload {
 	Plugins::delHooks($hooks);
 	%attack_starts = ();
+	%total_dmg = ();
 	undef $statsd_client;
 	message "[statsd] Plugin unloaded\n", "system" if $config{statsd_debug};
 }
