@@ -2,7 +2,6 @@ package discordcmd;
 
 use strict;
 use warnings;
-use lib $Plugins::current_plugin_folder."//..//!deps";
 use Plugins;
 use Commands;
 use Log qw(message);
@@ -67,7 +66,7 @@ sub on_load {
 	# Add log hook to send messages to Discord
 	$log_hook_id = Log::addHook(\&send_to_discord);
 
-	message "[discordcmd] Plugin loaded successfully\n";
+	message "[discordcmd] Plugin loaded successfully\n", "system";
 }
 
 sub on_unload {
@@ -82,11 +81,12 @@ sub on_unload {
 		$log_hook_id = undef;
 	}
 
-	message "[discordcmd] Plugin unloaded\n";
+	message "[discordcmd] Plugin unloaded\n", "system";
 }
 
 sub on_reload {
 	&on_unload;
+	&on_load;
 }
 
 sub iterate {
@@ -144,7 +144,7 @@ sub send_to_discord {
 	my $json_payload = encode_json($discord_message);
 	eval {
 		my $ua = LWP::UserAgent->new();
-		$ua->timeout(3);
+		$ua->timeout(2);
 		$ua->agent('Application');
 
 		my $request = HTTP::Request->new(POST => $discord_url);

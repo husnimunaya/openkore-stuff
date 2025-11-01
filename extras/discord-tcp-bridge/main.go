@@ -184,8 +184,6 @@ func main() {
 
 // messageCreate will be called every time a new message is created on any channel
 func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate, tcpServer *TCPServer) {
-	log.Printf("Message created: %s %s", m.Content, m.ChannelID)
-
 	// Ignore messages from the bot itself
 	if m.Author.ID == s.State.User.ID {
 		return
@@ -199,8 +197,6 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate, tcpServer *
 			break
 		}
 	}
-
-	log.Printf("Channel found: %v", channelFound)
 
 	if !channelFound {
 		return
