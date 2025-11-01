@@ -41,7 +41,6 @@ export TCP_PORT="8080"  # Optional, defaults to 8080
 Or create a `.env` file in the project directory:
 ```
 DISCORD_BOT_TOKEN=your_bot_token_here
-DISCORD_CHANNEL_ID=your_channel_id_here
 TCP_PORT=8080
 ```
 
