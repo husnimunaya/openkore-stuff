@@ -154,7 +154,6 @@ sub send_to_discord {
 
 		$ua->request($request);
 	} or do {
-		# do nothing
 	};
 }
 

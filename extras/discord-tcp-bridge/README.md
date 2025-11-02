@@ -34,8 +34,13 @@ This program requires Go 1.24 or higher. To install Go, follow the instructions 
 ### Set Environment Variables
 
 ```bash
+# Linux
 export DISCORD_BOT_TOKEN="your_bot_token_here"
 export TCP_PORT="8080"  # Optional, defaults to 8080
+
+# Windows Command Line
+set DISCORD_BOT_TOKEN="your_bot_token_here"
+set TCP_PORT="8080"  # Optional, defaults to 8080
 ```
 
 Or create a `.env` file in the project directory:
