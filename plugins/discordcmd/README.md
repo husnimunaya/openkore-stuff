@@ -30,4 +30,4 @@ Once the plugin is loaded, you can send commands to OpenKore from Discord. Read 
 ## Known Issues
 
 - Not all OpenKore commands output will be forwarded to Discord such as `storage` and `eq`.
-- This will not work with the precompiled Windows binaries due to SSL issues on older version of Perl. If you are on Windows, you can use [Strawberry Perl](https://strawberryperl.com/) to run OpenKore.
+- This will not work with the precompiled Windows binaries due to SSL issues on older version of Perl. If you are on Windows, you can use [Strawberry Perl](https://strawberryperl.com/) to run OpenKore (`perl openkore.pl`).
