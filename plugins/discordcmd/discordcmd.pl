@@ -11,6 +11,7 @@ use LWP::UserAgent;
 use HTTP::Request;
 use JSON;
 use Globals;
+use Data::Dumper;
 
 Plugins::register('discordcmd', 'Plugin to send commands from discord', \&on_unload, \&on_reload);
 
@@ -152,8 +153,10 @@ sub send_to_discord {
 		$request->header('Authorization' => "Bot $bot_token");
 		$request->content($json_payload);
 
-		$ua->request($request);
+		my $res = $ua->request($request);
+		message Dumper($res);
 	} or do {
+		message "[discordcmd] Failed to send message to Discord: $@\n";
 	};
 }
 
